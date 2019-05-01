@@ -40,7 +40,8 @@ $(()=>{
 
     // admin permissions
     if(sessionStorage.getItem('activeSession') == 1) {
-      const contentReports = $('#reports');
+      const contentReports = $('#reports'),
+      reportsTable = $('table tbody')
       $('#test_range').css('display', 'none');
       $('#test_num').css('display', 'none');
       contentReports.css('display', 'block');
@@ -63,8 +64,15 @@ $(()=>{
       // todo pagination and sorts
 
       reports.forEach((elem) => {
-        contentReports.append(
-            `<div>username: ${elem.username} -- layout(html, css): ${elem.lay}, js: ${elem.js}, php: ${elem.php}, c#: ${elem.sharp}, java: ${elem.java}</div>`
+        reportsTable.append(
+            `<tr>
+                <td>${elem.username}</td>
+                <td>${elem.lay}</td>
+                <td>${elem.js}</td>
+                <td>${elem.php}</td>
+                <td>${elem.sharp}</td>
+                <td>${elem.java}</td>
+            </tr>`
         )
       })
       
