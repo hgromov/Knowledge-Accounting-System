@@ -1,0 +1,27 @@
+#homePage:checked ~ #home{
+    display: block !important;
+}
+#homePage:checked ~ #gallery, #contacts, #profile{
+    display: none;
+}
+
+#profilePage:checked ~ #profile{
+    display: block !important;
+}
+#profilePage:checked ~ #home, #gallery, #contacts{
+    display: none;
+}
+
+#galleryPage:checked ~ #gallery{
+    display: block !important;
+}
+#galleryPage:checked ~ #home, #contacts, #profile{ 
+    display: none;
+}
+
+#contactsPage:checked ~ #contacts{
+    display: block !important;
+}
+#contactsPage:checked ~ #home, #gallery, #profile{
+    display: none;
+}
