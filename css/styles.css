@@ -189,7 +189,7 @@ input[type=radio] {
 
 .slick-slider .slick-dots {
     position: relative;
-    bottom: 30px;
+    bottom: 35px;
 }
 
 .slick-slider .slick-dots button::before {

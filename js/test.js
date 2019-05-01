@@ -24,7 +24,7 @@ $(()=>{
         php = e.target[2].value,
         sharp = e.target[3].value,
         java = e.target[4].value;
-    
+        
         if(checkUser() != undefined) {
           const report = {
             'lay': lay,
@@ -33,7 +33,7 @@ $(()=>{
             'sharp': sharp,
             'java': java
           }
-          localStorage.setItem(`report${user.login}`, JSON.stringify(report))
+          localStorage.setItem(`report${checkUser().login}`, JSON.stringify(report))
         }
       })
     }
