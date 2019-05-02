@@ -1,6 +1,7 @@
 const 
   userId = sessionStorage.getItem('activeSession'),
   userRegExp = new RegExp('^user\d*');
+  
 
 function checkUser() {
   let user = {};
@@ -13,6 +14,18 @@ function checkUser() {
     }
   }
   return user != {} ? user : undefined;
+}
+
+// check if the user has sent a report before
+const reportsQuery = new RegExp('^report');
+let isUserHasReport = false;
+for (let item in localStorage) {
+  if(reportsQuery.test(item)) {
+    let parsedItem = JSON.parse(localStorage[item]);
+    parsedItem.username = item.slice(6);
+    user = checkUser();
+    parsedItem.username == user.login ? isUserHasReport = true : null;
+  }
 }
 
 function isMobile() {

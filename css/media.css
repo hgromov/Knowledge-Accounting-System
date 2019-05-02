@@ -4,13 +4,13 @@
         bottom: 15px;
     }
     * {
-        font-size: 34px;
+        font-size: 28px;
     }
 }
 
 @media screen and (min-width: 1024px) { 
     * {
-        font-size: 30px;
+        font-size: 24px;
     }
 }
 
@@ -25,11 +25,11 @@
     .sign-in {
         min-width: 30%;
     }
-}
-
-@media screen and (max-width: 768px) {
     * {
-        font-size: 18px;
+        font-size: 22px
     }
 }
+
+
+
 

@@ -39,8 +39,8 @@ $(()=>{
         pwd = e.target[1].value,
         id = date.toString(),
         user = {login, pwd, id},
-        serialUser = JSON.stringify(user),
-        errors = 0;
+        serialUser = JSON.stringify(user);
+      let errors = 0;
         
       for(item in localStorage) {
         if(userRegExp.test(item)) {

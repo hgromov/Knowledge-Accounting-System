@@ -1,10 +1,11 @@
 $(()=>{
   const 
+    contentReports = $('#reports'),
     rform = $('#test_range'),
     nform = $('#test_num');
 
     function adaptiveform() {
-      if(isMobile() == true) {
+      if(isMobile()) {
         rform.css('display', 'none');
         nform.css('display', 'block');
         return nform
@@ -13,6 +14,11 @@ $(()=>{
         nform.css('display', 'none');
         return rform
       }
+    }
+
+    function removeForm() {
+      isMobile() ? nform.css('display', 'none') : rform.css('display', 'none');
+      $('.finView').css('display', 'block');
     }
 
     if (sessionStorage.length != 0) {
@@ -33,24 +39,32 @@ $(()=>{
             'sharp': sharp,
             'java': java
           }
-          localStorage.setItem(`report${checkUser().login}`, JSON.stringify(report))
+          localStorage.setItem(`report${checkUser().login}`, JSON.stringify(report));
+          removeForm();
         }
       })
     }
 
+    if(isUserHasReport) {
+      removeForm()
+    }
+
+    // pass again (show form and hide massage)
+    $('#pass').click(()=>{
+      adaptiveform();
+      $('.finView').css('display', 'none');
+    })
+    
     // admin permissions
     if(sessionStorage.getItem('activeSession') == 1) {
-      const contentReports = $('#reports'),
-      reportsTable = $('table tbody')
+      const reportsTable = $('table tbody');
       $('#test_range').css('display', 'none');
       $('#test_num').css('display', 'none');
       contentReports.css('display', 'block');
       $('label[for=profilePage]').text('Reports');
 
-      //search for reports
-      const 
-        reports = [],
-        reportsQuery = new RegExp('^report');
+      // search for reports
+      const reports = [];
       for (let item in localStorage) {
         if(reportsQuery.test(item)) {
           let parsedItem = JSON.parse(localStorage[item]);
@@ -59,9 +73,14 @@ $(()=>{
         }
       }
 
+      if(reports.length == 0) {
+        contentReports.html('Not yet any reports.');
+      }
+
       let totalPagesAmount = Math.ceil(reports.length / 10);
 
       // todo pagination and sorts
+
 
       reports.forEach((elem) => {
         reportsTable.append(
