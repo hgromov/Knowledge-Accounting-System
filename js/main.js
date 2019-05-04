@@ -3,7 +3,7 @@ $(()=>{
     barbtn = $('#barbtn'),
     header = $('header'),
     nav = $('nav'),
-    firefont = $('#firefont'),
+    fireFont = $('#fireFont'),
     navUl = $('nav ul'),
     slickSlider = $('.slick-slider'),
     trigger = $('.trigger'),
@@ -30,7 +30,7 @@ $(()=>{
       nav.animate({
         'width': '20vw'
       }, 300)
-      firefont.css('display', 'block');
+      fireFont.css('display', 'block');
       navUl.css('display', 'block');
       header.animate({
         'width': '80vw',
@@ -66,7 +66,7 @@ $(()=>{
         'width': '100vw',
         'left': '0'
       }, 300)
-      firefont.css('display', 'none');
+      fireFont.css('display', 'none');
       slickSlider.animate({
         'width': '100vw',
         'left': '0'
