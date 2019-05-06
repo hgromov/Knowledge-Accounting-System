@@ -13,7 +13,11 @@ function checkUser() {
       }
     }
   }
-  return user != {} ? user : undefined;
+  if(user != {}) {
+    return user;
+  } else {
+    return undefined;
+  }
 }
 
 // check if the user has sent a report before

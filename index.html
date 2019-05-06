@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./css/webfonts/all.css">
     <link rel="stylesheet" type="text/css" href="css/slick.css"/>
     <link rel="stylesheet" type="text/css" href="css/slick-theme.css"/>
+    <link rel="stylesheet" href="https://openlayers.org/en/v5.3.0/css/ol.css" type="text/css">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css" type="text/css">
     <title>final project</title>
 </head>
 <body>
@@ -156,7 +158,9 @@
 
         <div id="gallery">
             <div class="bigPic">
-                <h2>Photo Gallery</h2>
+                <div class="tape">
+                    <h2>Photo Gallery</h2>
+                </div>
             </div>
             <div class="photos">
                 <img class="gallery-item active" src="./img/1.jpg"></img>
@@ -166,12 +170,33 @@
         </div>
 
         <div id="contacts">
-            <h1>contacts</h1>
+            <div class="about">
+                <h2>About</h2>
+                <p>
+                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                  Enim quibusdam sequi eos inventore fuga consectetur cupiditate fugit tenetur?
+                  Lorem ipsum dolor sit amet consectetur.
+                </p>
+            </div>
+            <div class="contacts">
+                <h2>Contacts</h2>
+                <div >
+                    <span>Email - hgrom9@gmail.com</span><br>   
+                    <span>Phone (<span class="tg">tg</span>, <span class="vb">viber</span>) - +380506099117</span><br>
+                    <span>
+                        2175 Boul. Opa-Improvised-Ardess<br>
+                        Sam-Pridumal, QC J3V 4P7
+                    </span>
+                </div>
+            </div>
+            <div id="map" class="map"></div>
         </div>
         
     </main>
     <script src="./js/jquery.js"></script>
     <script type="text/javascript" src="./js/slick.min.js"></script>
+    <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList"></script>
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
     <script src="./js/main.js"></script>
     <script src="./js/checkforUser.js"></script>
     <script src="./js/auth.js"></script>

@@ -20,7 +20,7 @@
 }
 
 #contactsPage:checked ~ #contacts{
-    display: block !important;
+    display: grid !important;
 }
 #contactsPage:checked ~ #home, #gallery, #profile{
     display: none;

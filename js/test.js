@@ -3,7 +3,7 @@ $(()=>{
     contentReports = $('#reports'),
     rform = $('#test_range'),
     nform = $('#test_num');
-
+    let user = checkUser();
 
     function adaptiveform() {
       if(isMobile()) {
@@ -22,7 +22,7 @@ $(()=>{
       $('.finView').css('display', 'block');
     }
 
-    if (sessionStorage.length != 0) {
+    if (user.login !== undefined) {
       adaptiveform().on('submit', e=>{
         e.preventDefault();
         const
@@ -30,19 +30,19 @@ $(()=>{
         js = e.target[1].value,
         php = e.target[2].value,
         sharp = e.target[3].value,
-        java = e.target[4].value;
+        java = e.target[4].value,
+        date = Number(new Date);
         
-        if(checkUser() != undefined) {
-          const report = {
-            'lay': lay,
-            'js': js,
-            'php': php,
-            'sharp': sharp,
-            'java': java
-          }
-          localStorage.setItem(`report${checkUser().login}`, JSON.stringify(report));
-          removeForm();
+        const report = {
+          'lay': lay,
+          'js': js,
+          'php': php,
+          'sharp': sharp,
+          'java': java,
+          'date': date
         }
+        localStorage.setItem(`report${checkUser().login}`, JSON.stringify(report));
+        removeForm();
       })
     }
 
@@ -56,7 +56,7 @@ $(()=>{
       $('.finView').css('display', 'none');
     })
     
-    // admin permissions
+    // admin panel
     if(sessionStorage.getItem('activeSession') == 1) {
       const reportsTable = $('table tbody');
       $('#test_range').css('display', 'none');
@@ -92,27 +92,27 @@ $(()=>{
       })
       
       // pagination
-      
       reportsTable.after('<div id="nav"></div>');
-      var rowsShown = 10;
-      var rowsTotal = $('table tbody tr').length;
-      var numPages = rowsTotal/rowsShown;
-      for(i = 0;i < numPages;i++) {
-          var pageNum = i + 1;
-          $('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');
+      const rowsShown = 10;
+      let rowsTotal = $('table tbody tr').length;
+      let totalPagesAmount = Math.ceil(rowsTotal / rowsShown);
+
+      for(i = 0;i < totalPagesAmount;i++) {
+        var pageNum = i + 1;
+        $('#nav').append('<a href="#" rel="'+i+'">'+pageNum+'</a> ');
       }
       $('table tbody tr').hide();
       $('table tbody tr').slice(0, rowsShown).show();
       $('#nav a:first').addClass('active');
-      $('#nav a').bind('click', function(){
-  
-          $('#nav a').removeClass('active');
-          $(this).addClass('active');
-          var currPage = $(this).attr('rel');
-          var startItem = currPage * rowsShown;
-          var endItem = startItem + rowsShown;
-          $('table tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
-          css('display','table-row').animate({opacity:1}, 300);
+
+      $('#nav a').click(function(){
+        $('#nav a').removeClass('active');
+        $(this).addClass('active');
+        let currPage = $(this).attr('rel');
+        let startItem = currPage * rowsShown;
+        let endItem = startItem + rowsShown;
+        $('table tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
+        css('display','table-row').animate({opacity:1}, 300);
       });
     }
 })

@@ -3,13 +3,13 @@
         position: absolute;
         bottom: 15px;
     }
-    * {
+    body {
         font-size: 28px;
     }
 }
 
 @media screen and (min-width: 1024px) { 
-    * {
+    body {
         font-size: 24px;
     }
 }
@@ -25,11 +25,24 @@
     .sign-in {
         min-width: 30%;
     }
-    * {
-        font-size: 22px
+}
+
+@media screen and (max-width: 650px) { 
+    #contacts {
+        grid-template-areas: 
+        'ab ab'
+        'ct ct'
+        'mp mp';
+    }
+    body {
+        font-size: 20px
     }
 }
 
-
+@media screen and (max-width: 320px) { 
+    body {
+        font-size: 18px
+    }
+}
 
 

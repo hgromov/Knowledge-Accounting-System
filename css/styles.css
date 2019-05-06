@@ -38,6 +38,10 @@ header {
     position: relative;
 }
 
+#modal {
+    font-size: 1.2rem
+}
+
 #barbtn {
     width: 60px;
     height: 45px;
@@ -181,6 +185,7 @@ input[type=radio] {
 .slick-slider {
     overflow: hidden;
     width: 100vw;
+    max-height: 100vh;
 }
 
 .slick-slider img {
@@ -283,7 +288,21 @@ input[type=radio] {
 
 .sign-in div form input {
     margin-bottom: 10px;
+    padding-left: .5rem;
     font-size: 18px;
+    border: 0;
+    border-bottom: 2px solid #C8CCD4;
+    background: transparent;
+    text-align: left;
+}
+
+.sign-in .reg-form #registerForm input {
+    border-bottom: 2px solid #eee;
+}
+
+.sign-in div form input:focus {
+    background: none;
+    outline: none;
 }
 
 .sign-in div form button {
@@ -343,7 +362,6 @@ h1 {
 
 #gallery {
     display: block;
-    text-align: center;
     line-height: 60px;
     width: 100vw;
     min-height: 90vh;
@@ -359,12 +377,20 @@ h1 {
     height: 500px;
     padding: .5rem 0;
 }
-
-h2 {
+.tape {
+    background: linear-gradient(to bottom,rgba(255,3,64, .3),rgba(255,3,64, .25),rgba(255,207,64, 0));
+    text-align: center;
+    margin-top: -.5rem;
+}
+.tape:hover{
+    background: rgba(255,3,64, .4);
+}
+.tape h2 {
+    display: inline;
     color: #000;
     font-size: 2rem;
     font-weight: bold;
-    cursor: default
+    cursor: default;
 }
 
 .photos {
@@ -399,8 +425,8 @@ h2 {
     display: none;
     color: #ccc;
     text-align: center;
-    margin-top: 1rem;
-    font-size: 1.5rem;
+    line-height: 10vh;
+    font-size: 2rem;
 }
 
 #fireFont:hover {
@@ -412,6 +438,7 @@ table {
     width: 100%;
     cursor: crosshair;
     text-align: center;
+    color: #222;
 }
 thead {
     font-weight: bold;
@@ -455,4 +482,47 @@ tbody tr {
     text-align: center;
     position: absolute;
     bottom: 1rem;
+    margin-left: -.5rem;
 }
+a[href='#'] {
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+    width: 1rem;
+    height: 1rem;
+    background: #eee;
+    color: #222;
+    box-shadow: 3px 3px 0 #222;
+    transition: transform .2s, box-shadow .4s;
+}
+
+a[href='#']:active, a[class='active']  {
+    box-shadow: none;
+    transform: translate(3px, 3px)
+}
+
+.map {
+    max-height: 50vh;
+    width: 100%;
+    position: relative;
+    grid-area: mp;
+
+}
+.about {
+    grid-area: ab;
+}
+
+.contacts {
+    grid-area: ct;
+}
+
+#contacts {
+    height: auto;
+    padding: 1rem;
+    display: grid;
+    grid-template-areas: 
+        'ab ct'
+        'mp mp';
+}
+
