@@ -20,8 +20,12 @@
 }
 
 #contactsPage:checked ~ #contacts{
-    display: grid !important;
+    display: flex !important;
 }
 #contactsPage:checked ~ #home, #gallery, #profile{
     display: none;
+}
+#contactsPage:checked ~ body main #map{
+    display: block;
+    max-height: 65vh;
 }

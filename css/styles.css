@@ -177,11 +177,6 @@ input[type=radio] {
     position: relative;
 }
 
-#contacts {
-    min-height: 90vh;
-    position: relative;
-}
-
 .slick-slider {
     overflow: hidden;
     width: 100vw;
@@ -491,6 +486,7 @@ a[href='#'] {
     text-decoration: none;
     width: 1rem;
     height: 1rem;
+    font-size: 1rem;
     background: #eee;
     color: #222;
     box-shadow: 3px 3px 0 #222;
@@ -503,26 +499,18 @@ a[href='#']:active, a[class='active']  {
 }
 
 .map {
-    max-height: 50vh;
-    width: 100%;
+    max-width: 100vw;
     position: relative;
-    grid-area: mp;
-
-}
-.about {
-    grid-area: ab;
-}
-
-.contacts {
-    grid-area: ct;
+    margin-top: 1rem;
+    height: 65vh;
 }
 
 #contacts {
-    height: auto;
     padding: 1rem;
-    display: grid;
-    grid-template-areas: 
-        'ab ct'
-        'mp mp';
+    min-height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
 }
 

@@ -32,6 +32,10 @@ $(()=>{
       }, 300)
       fireFont.css('display', 'block');
       navUl.css('display', 'block');
+      $('#map').animate({
+        'width': '80vw',
+        'left': '20vw'
+      }, 300)
       header.animate({
         'width': '80vw',
         'left': '20vw'
@@ -68,6 +72,10 @@ $(()=>{
       }, 300)
       fireFont.css('display', 'none');
       slickSlider.animate({
+        'width': '100vw',
+        'left': '0'
+      }, 300)
+      $('#map').animate({
         'width': '100vw',
         'left': '0'
       }, 300)
@@ -135,25 +143,27 @@ $(()=>{
   }
 
   //map api
-  var map = new ol.Map({
-    target: 'map',
+  const map = new ol.Map({
     layers: [
       new ol.layer.Tile({
         source: new ol.source.OSM()
       })
     ],
+    target: document.getElementById('map'),
     view: new ol.View({
-      center: ol.proj.fromLonLat([37.41, 8.82]),
-      zoom: 4
+      center: [0, 0],
+      zoom: 2
     })
   });
+  $('#map').css('display', 'none');
+  document.addEventListener('click',()=>{
+    if($('input#contactsPage:checked').length == 1) {
+      $('#map').css('height', '65vh');
+      $('#map').css('display', 'block');
+    } else {
+      $('#map').css('display', 'none');
+    }
+  })
 
-
-
-  $('label[for="contactsPage"]').click(()=>{
-    // map.render();
-    map.renderSync();
-  })  
-  
 })
 

@@ -3,7 +3,9 @@ $(()=>{
     contentReports = $('#reports'),
     rform = $('#test_range'),
     nform = $('#test_num');
-    let user = checkUser();
+  let reports = reportsArray(),
+      user = checkUser(),
+      username = checkUser().login;
 
     function adaptiveform() {
       if(isMobile()) {
@@ -22,6 +24,16 @@ $(()=>{
       $('.finView').css('display', 'block');
     }
 
+    function userReport() {
+      userReport = {};
+      reports.map((elem)=>{
+        if (elem.login == username) {
+          console.log(elem)
+          userReport = elem
+        }
+      })
+    }
+    userReport()
     if (user.login !== undefined) {
       adaptiveform().on('submit', e=>{
         e.preventDefault();
@@ -47,7 +59,8 @@ $(()=>{
     }
 
     if(isUserHasReport) {
-      removeForm()
+      removeForm();
+      // console.log(userReport());
     }
 
     // pass again (show form and hide massage)
@@ -63,16 +76,6 @@ $(()=>{
       $('#test_num').css('display', 'none');
       contentReports.css('display', 'block');
       $('label[for=profilePage]').text('Reports');
-
-      // search for reports
-      const reports = [];
-      for (let item in localStorage) {
-        if(reportsQuery.test(item)) {
-          let parsedItem = JSON.parse(localStorage[item]);
-          parsedItem.username = item.slice(6);
-          reports.push(parsedItem)
-        }
-      }
 
       if(reports.length == 0) {
         contentReports.html('Not yet any reports.');

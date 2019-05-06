@@ -20,6 +20,19 @@ function checkUser() {
   }
 }
 
+function reportsArray() {
+  // search for reports
+  const reports = [];
+  for (let item in localStorage) {
+    if(reportsQuery.test(item)) {
+      let parsedItem = JSON.parse(localStorage[item]);
+      parsedItem.username = item.slice(6);
+      reports.push(parsedItem)
+    }
+  }
+  return reports;
+}
+
 // check if the user has sent a report before
 const reportsQuery = new RegExp('^report');
 let isUserHasReport = false;
