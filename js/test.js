@@ -3,9 +3,29 @@ $(()=>{
     contentReports = $('#reports'),
     rform = $('#test_range'),
     nform = $('#test_num');
-  let reports = reportsArray(),
-      user = checkUser(),
-      username = checkUser().login;
+  let user = checkUser(),
+      currentReport = 
+        `<table>
+            <thead>
+              <tr>
+                <td>Layout making</td>
+                <td>JavaScript</td>
+                <td>php</td>
+                <td>C#</td>
+                <td>Java</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>${userReport.lay}</td>
+                <td>${userReport.js}</td>
+                <td>${userReport.php}</td>
+                <td>${userReport.sharp}</td>
+                <td>${userReport.java}</td>
+              </tr>
+            </tbody>
+        </table>
+        `;
 
     function adaptiveform() {
       if(isMobile()) {
@@ -24,16 +44,6 @@ $(()=>{
       $('.finView').css('display', 'block');
     }
 
-    function userReport() {
-      userReport = {};
-      reports.map((elem)=>{
-        if (elem.login == username) {
-          console.log(elem)
-          userReport = elem
-        }
-      })
-    }
-    userReport()
     if (user.login !== undefined) {
       adaptiveform().on('submit', e=>{
         e.preventDefault();
@@ -54,13 +64,20 @@ $(()=>{
           'date': date
         }
         localStorage.setItem(`report${checkUser().login}`, JSON.stringify(report));
+        $('.finView #pick').replaceWith(currentReport);
         removeForm();
+        window.location.hash = 'reload';
+        location.reload();
       })
+    }
+    
+    if(window.location.hash == "#reload"){
+      $('#profilePage').prop('checked', true)
     }
 
     if(isUserHasReport) {
+      $('.finView #pick').empty().append(currentReport);
       removeForm();
-      // console.log(userReport());
     }
 
     // pass again (show form and hide massage)

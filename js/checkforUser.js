@@ -1,7 +1,7 @@
 const 
   userId = sessionStorage.getItem('activeSession'),
-  userRegExp = new RegExp('^user\d*');
-  
+  userRegExp = new RegExp('^user\d*'),
+  reportsQuery = new RegExp('^report');
 
 function checkUser() {
   let user = {};
@@ -20,28 +20,19 @@ function checkUser() {
   }
 }
 
-function reportsArray() {
-  // search for reports
-  const reports = [];
-  for (let item in localStorage) {
-    if(reportsQuery.test(item)) {
-      let parsedItem = JSON.parse(localStorage[item]);
-      parsedItem.username = item.slice(6);
-      reports.push(parsedItem)
-    }
-  }
-  return reports;
-}
-
 // check if the user has sent a report before
-const reportsQuery = new RegExp('^report');
-let isUserHasReport = false;
+let 
+  isUserHasReport = false,
+  userReport = {};
 for (let item in localStorage) {
   if(reportsQuery.test(item)) {
     let parsedItem = JSON.parse(localStorage[item]);
     parsedItem.username = item.slice(6);
     user = checkUser();
-    parsedItem.username == user.login ? isUserHasReport = true : null;
+    if (parsedItem.username == user.login) {
+      isUserHasReport = true;
+      userReport = parsedItem;
+    }
   }
 }
 

@@ -34,12 +34,11 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 1.2rem 0 .2rem;
-    font-size: 20px;
     position: relative;
 }
 
 #modal {
-    font-size: 1.2rem
+    font-size: 1.5rem;
 }
 
 #barbtn {
@@ -133,6 +132,7 @@ header div span {
 }
 
 #logout {
+    font-size: 1.5rem;
     display: none
 }
 
@@ -175,6 +175,10 @@ input[type=radio] {
     padding: 2rem;
     min-height: 90vh;
     position: relative;
+}
+
+.loremtext {
+    margin: 0 1.5rem 1rem;
 }
 
 .slick-slider {
@@ -284,7 +288,7 @@ input[type=radio] {
 .sign-in div form input {
     margin-bottom: 10px;
     padding-left: .5rem;
-    font-size: 18px;
+    font-size: 1rem;
     border: 0;
     border-bottom: 2px solid #C8CCD4;
     background: transparent;
@@ -409,7 +413,14 @@ h1 {
 }
 
 #profile #warnlogin {
-    text-align: center;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#profile #warnlogin div {
+    font-size: 1.5rem;
 }
 
 #reports {
@@ -456,7 +467,7 @@ td {
     width: 20%
 }
 
-td:first-child {
+td:first-child:not(#pick tr) {
     border-right: 1px solid #222;
 }
 
@@ -464,12 +475,22 @@ thead td:first-child {
     border-right: none;
 }
 
-tbody tr {
+tbody tr:not(#pick tr) {
     display: none;
 }
 
 .finView {
     display: none;
+}
+
+#pick tr {
+    border-bottom: 1px solid #222;
+}
+
+#profile button {
+    width: 100px;
+    line-height: 2rem;
+    font-size: 1.5rem;
 }
 
 #nav {
@@ -506,7 +527,7 @@ a[href='#']:active, a[class='active']  {
 }
 
 #contacts {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
     min-height: 10vh;
     display: flex;
     justify-content: space-between;

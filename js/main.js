@@ -18,7 +18,6 @@ $(()=>{
     gallery = $('#gallery'),
     contacts = $('#contacts'),
     profile = $('#profile'),
-    homebtn = $('#homePage'),
     test = $('#test'),
     userId = sessionStorage.getItem('activeSession');
 
@@ -106,11 +105,6 @@ $(()=>{
     dots: true
   });
 
-  // костыли-фикс
-  homebtn.click(()=>{
-    slickSlider.slick('refresh');
-  })
-
   // модальное переворачивающееся окно регистрации и входа
   modal.click(()=>{
     popup.fadeToggle();
@@ -156,12 +150,17 @@ $(()=>{
     })
   });
   $('#map').css('display', 'none');
+
+  // костыли
   document.addEventListener('click',()=>{
     if($('input#contactsPage:checked').length == 1) {
       $('#map').css('height', '65vh');
       $('#map').css('display', 'block');
     } else {
       $('#map').css('display', 'none');
+    }
+    if(window.location.hash == "#reload") {
+      window.location.hash = '';
     }
   })
 
