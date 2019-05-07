@@ -2,6 +2,8 @@ const
   userId = sessionStorage.getItem('activeSession'),
   userRegExp = new RegExp('^user\d*'),
   reportsQuery = new RegExp('^report');
+let userReport = currentReport(),
+isUserHasReport = currentReport() != false ? true : false;
 
 function checkUser() {
   let user = {};
@@ -21,19 +23,45 @@ function checkUser() {
 }
 
 // check if the user has sent a report before
-let 
-  isUserHasReport = false,
-  userReport = {};
-for (let item in localStorage) {
-  if(reportsQuery.test(item)) {
-    let parsedItem = JSON.parse(localStorage[item]);
-    parsedItem.username = item.slice(6);
-    user = checkUser();
-    if (parsedItem.username == user.login) {
-      isUserHasReport = true;
-      userReport = parsedItem;
+function currentReport() {
+  let userReport = {};
+  for (let item in localStorage) {
+    if(reportsQuery.test(item)) {
+      let parsedItem = JSON.parse(localStorage[item]);
+      parsedItem.username = item.slice(6);
+      user = checkUser();
+      if (parsedItem.username == user.login) {
+        userReport = parsedItem;
+      }
     }
   }
+  return userReport != {} ? userReport : false
+}
+
+function ReportLayout() {
+  let obj = currentReport();
+    return `
+      <table>
+        <thead>
+          <tr>
+            <td>Layout making</td>
+            <td>JavaScript</td>
+            <td>php</td>
+            <td>C#</td>
+            <td>Java</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>${obj.lay}</td>
+            <td>${obj.js}</td>
+            <td>${obj.php}</td>
+            <td>${obj.sharp}</td>
+            <td>${obj.java}</td>
+          </tr>
+        </tbody>
+    </table>
+    `;
 }
 
 function isMobile() {
