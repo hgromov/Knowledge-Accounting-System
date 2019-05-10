@@ -58,7 +58,7 @@
         <nav>
             <i id="fireFont" class="fab fa-hotjar"></i>
             <ul>
-                <li><label id="hop" for="homePage">Home</label></li>
+                <li><label class="hop" for="homePage">Home</label></li>
                 <li><label for="profilePage">Profile</label></li>
                 <li><label for="galleryPage">Gallery</label></li>
                 <li><label for="contactsPage">Contacts</label></li>
@@ -123,6 +123,11 @@
             <div class="finView">
                 <span>Report accepted, your pick:</span><br><br>
                 <div id="pick"></div><br>
+                <a onclick="Share.vkontakte()"><i class="fab fa-vk"></i></a>
+                <a onclick="Share.facebook()"><i class="fab fa-facebook-f"></i></a>
+                <a onclick="Share.twitter()"><i class="fab fa-twitter"></i></a>
+                <a onclick="Share.mailru()"><i class="fas fa-at"></i></a>
+                <a onclick="Share.odnoklassniki()"><i class="fab fa-odnoklassniki"></i></a><br>
                 <button id="pass">pass again</button>
             </div>
             <form id="test_range">
@@ -158,8 +163,10 @@
                     <thead>
                         <tr>
                             <td>username</td>
-                            <td>html, css</td>
-                            <td>javascript</td>
+                            <td id="lay-long">layout making</td>
+                            <td id="lay-short" title="layout making">layout.m.</td>
+                            <td id="js-long">javascript</td>
+                            <td id="js-short">js</td>
                             <td>php</td>
                             <td>c#</td>
                             <td>java</td>
@@ -179,9 +186,15 @@
                 </div>
             </div>
             <div class="photos">
-                <img class="gallery-item active" src="./img/1.jpg"></img>
-                <img class="gallery-item" src="img/2.jpeg"></img>
-                <img class="gallery-item" src="img/3.jpeg"></img>
+                <div class="card">
+                    <img class="gallery-item active" src="./img/1.jpg"></img>
+                </div>
+                <div class="card">
+                    <img class="gallery-item" src="img/2.jpeg"></img>
+                </div>
+                <div class="card">
+                    <img class="gallery-item" src="img/3.jpeg"></img>
+                </div>
             </div>
         </div>
 
@@ -210,16 +223,15 @@
         <div id="map" class="map"></div> 
          
     </main>
-    
 
     <script src="./js/jquery.js"></script>
     <script type="text/javascript" src="./js/slick.min.js"></script>
     <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList"></script>
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
-    <script src="./js/main.js"></script>
     <script src="./js/checkforUser.js"></script>
+    <script src="./js/main.js"></script>
     <script src="./js/auth.js"></script>
     <script src="./js/test.js"></script>
-
+    <script src="./js/threedcards.js"></script>
 </body>
 </html>

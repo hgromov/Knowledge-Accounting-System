@@ -41,6 +41,10 @@ header {
     font-size: 1.5rem;
 }
 
+.trigger:hover {
+    text-decoration: underline;
+}
+
 #barbtn {
     width: 60px;
     height: 45px;
@@ -172,7 +176,7 @@ input[type=radio] {
 }
 
 #profile {
-    padding: 2rem;
+    padding: 1rem;
     min-height: 90vh;
     position: relative;
 }
@@ -273,6 +277,11 @@ input[type=radio] {
     right: 8px;
     font-size: 20px;
     cursor: pointer;
+    transition: transform .2s;
+}
+
+.sign-in i:hover {
+   transform: scale(1.5)
 }
 
 .trigger {
@@ -334,7 +343,7 @@ input[type=radio] {
 
 h1 {
     line-height: 50px;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .custom-hr {
@@ -387,7 +396,7 @@ h1 {
 .tape h2 {
     display: inline;
     color: #000;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: bold;
     cursor: default;
 }
@@ -397,13 +406,21 @@ h1 {
     justify-content: space-around;
 }
 
+.card {
+    display: flex;
+    max-width: 300px;
+    max-height: 300px;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+}
+
 .gallery-item {
 	object-fit: cover;
 	cursor: pointer;
-	max-width: 300px;
-	max-height: 300px;
+    height: 100%;
+    width: 100%;
 	opacity: 0.7;
-	transition: opacity 0.3s;
+    transition: opacity .3s, transform .3s;
 }
 .gallery-item.active,
 .gallery-item:hover{
@@ -452,6 +469,7 @@ thead {
 }
 thead tr td {
     font-size: 1.2rem;
+    text-align: center
 }
 tbody {
     vertical-align: middle;
@@ -463,9 +481,7 @@ tbody tr:hover {
 tbody tr:not(:first-child):hover {
     border-top: 1px solid #c9c9c9;
 }
-td {
-    width: 20%
-}
+
 
 td:first-child:not(#pick tr) {
     border-right: 1px solid #222;
@@ -485,6 +501,15 @@ tbody tr:not(#pick tr) {
 
 #pick tr {
     border-bottom: 1px solid #222;
+    margin-bottom: 1rem;
+}
+
+#pass {
+    margin-top: 1rem
+}
+
+a {
+    margin: 0 .5rem;
 }
 
 #profile button {

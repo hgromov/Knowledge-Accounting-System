@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 1024px) { 
-    .gallery-item {
+    .card {
         width: 33.333%;
         height: 150px;
     }
@@ -25,11 +25,35 @@
     .sign-in {
         min-width: 30%;
     }
+    #js-short {
+        display: none
+    }
+    #js-long {
+        display: table-cell
+    }
+    #lay-long {
+        display: table-cell
+    }
+    #lay-short {
+        display: none
+    }
 }
 
 @media screen and (max-width: 650px) { 
     body {
         font-size: 20px
+    }
+    #js-short {
+        display: table-cell
+    }
+    #js-long {
+        display: none
+    }
+    #lay-long {
+        display: none
+    }
+    #lay-short {
+        display: table-cell
     }
 }
 
@@ -38,5 +62,4 @@
         font-size: 18px
     }
 }
-
 

@@ -42,7 +42,7 @@ $(()=>{
           'date': date
         }
         localStorage.setItem(`report${checkUser().login}`, JSON.stringify(report));
-        $('.finView #pick').replaceWith(ReportLayout());
+        $('.finView #pick').replaceWith(reportLayout());
         removeForm();
         window.location.hash = 'reload';
         location.reload();
@@ -54,8 +54,12 @@ $(()=>{
     }
 
     if(isUserHasReport) {
-      $('.finView #pick').replaceWith(ReportLayout());
+      $('.finView #pick').replaceWith(reportLayout());
       removeForm();
+    }
+
+    if(userId == undefined || userId == 1) {
+      $('.finView').css('display', 'none');
     }
 
     // pass again (show form and hide massage)
@@ -65,18 +69,18 @@ $(()=>{
     })
     
     // admin panel
-    if(sessionStorage.getItem('activeSession') == 1) {
-      const reportsTable = $('table tbody');
+    if(userId == 1) {
+      const reportsTable = $('#reports table tbody');
       $('#test_range').css('display', 'none');
       $('#test_num').css('display', 'none');
       contentReports.css('display', 'block');
       $('label[for=profilePage]').text('Reports');
 
-      if(reports.length == 0) {
+      if(allReports().length == 0) {
         contentReports.html('Not yet any reports.');
       }
 
-      reports.forEach((elem) => {
+      allReports().forEach((elem) => {
         reportsTable.append(
             `<tr>
                 <td>${elem.username}</td>

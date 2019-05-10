@@ -22,6 +22,18 @@ function checkUser() {
   }
 }
 
+function allReports() {
+  const reports = [];
+  for (let item in localStorage) {
+    if(reportsQuery.test(item)) {
+      let parsedItem = JSON.parse(localStorage[item]);
+      parsedItem.username = item.slice(6);
+      reports.push(parsedItem);
+    }
+  }
+  return reports;
+}
+
 // check if the user has sent a report before
 function currentReport() {
   let userReport = {};
@@ -38,7 +50,7 @@ function currentReport() {
   return userReport != {} ? userReport : false
 }
 
-function ReportLayout() {
+function reportLayout() {
   let obj = currentReport();
     return `
       <table>
@@ -63,6 +75,12 @@ function ReportLayout() {
     </table>
     `;
 }
+
+function stringReportLayout() {
+  let obj = currentReport();
+    return `Layout making - ${obj.lay}; JavaScript - ${obj.js}; php - ${obj.php}; C# - ${obj.sharp}; Java - ${obj.java}.`;
+}
+
 
 function isMobile() {
   let isMobile = false;
