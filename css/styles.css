@@ -166,9 +166,9 @@ nav ul li label{
 }
 
 nav ul li label:hover{
-    color: #222;
-    background: #ccc;
-    font-weight: bold;
+    color: #222 !important;
+    background: #ccc !important;
+    font-weight: bold !important;
 }
 
 input[type=radio] {

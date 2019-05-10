@@ -19,9 +19,19 @@ $(()=>{
     contacts = $('#contacts'),
     profile = $('#profile'),
     test = $('#test'),
+    mapa = $('#map'),
     userId = sessionStorage.getItem('activeSession'),
     inp = document.querySelectorAll('input[placeholder="login"]')[0],
-    inp1 = document.querySelectorAll('input[placeholder="login"]')[1];
+    inp1 = document.querySelectorAll('input[placeholder="login"]')[1],
+    homeCheckbox = $('#homePage'),
+    profileCheckbox = $('#profilePage'),
+    galleryCheckbox = $('#galleryPage'),
+    contactsCheckbox = $('#contactsPage'),
+    labelForHome = $('label[for=homePage]'),
+    labelForProfile = $('label[for=profilePage]'),
+    labelForGallery = $('label[for=galleryPage]'),
+    labelForContacts = $('label[for=contactsPage]'),
+    labelsCollection = [labelForHome,labelForProfile,labelForGallery,labelForContacts];
 
   // боковое меню
   nav.attr('state','hiden');
@@ -33,7 +43,7 @@ $(()=>{
       }, 300)
       fireFont.css('display', 'block');
       navUl.css('display', 'block');
-      $('#map').css({
+      mapa.css({
         'width': '80vw',
         'left': '20vw'
       })
@@ -76,7 +86,7 @@ $(()=>{
         'width': '100vw',
         'left': '0'
       })
-      $('#map').css({
+      mapa.css({
         'width': '100vw',
         'left': '0'
       })
@@ -100,6 +110,64 @@ $(()=>{
       nav.attr('state','hiden');
       slickSlider.slick('refresh');
     }
+  })
+
+  // label checked mark
+  homeCheckbox.click(()=>{
+    labelsCollection.forEach((el)=>{
+      el.css({
+        'color': '#eee',
+        'background': 'inherit',
+        'fontWeight': 'normal',
+      })
+    })
+    labelForHome.css({
+      'color': '#222',
+      'background': '#ccc',
+      'fontWeight': 'bold',
+    })
+  })
+  profileCheckbox.click(()=>{
+    labelsCollection.forEach((el)=>{
+      el.css({
+        'color': '#eee',
+        'background': 'inherit',
+        'fontWeight': 'normal',
+      })
+    })
+    labelForProfile.css({
+      'color': '#222',
+      'background': '#ccc',
+      'fontWeight': 'bold',
+    })
+  })
+  galleryCheckbox.click(()=>{
+    labelsCollection.forEach((el)=>{
+      el.css({
+        'color': '#eee',
+        'background': 'inherit',
+        'fontWeight': 'normal',
+      })
+    })
+    labelForGallery.css({
+      'color': '#222',
+      'background': '#ccc',
+      'fontWeight': 'bold',
+    })
+  })
+  contactsCheckbox.click(()=>{
+    labelsCollection.forEach((el)=>{
+      el.css({
+        'color': '#eee',
+        'background': 'inherit',
+        'fontWeight': 'normal',
+      })
+    })
+    labelForContacts.css({
+      'color': '#222',
+      'background': '#ccc',
+      'fontWeight': 'bold',
+    })
   })
   
   // слайдер
@@ -153,7 +221,7 @@ $(()=>{
       zoom: 2
     })
   });
-  $('#map').css('display', 'none');
+  mapa.css('display', 'none');
 
   Share = {
     facebook: function() {
@@ -190,10 +258,10 @@ $(()=>{
   // костыли
   document.addEventListener('click',(e)=>{
     if($('input#contactsPage:checked').length == 1) {
-      $('#map').css('height', '65vh');
-      $('#map').css('display', 'block');
+      mapa.css('height', '65vh');
+      mapa.css('display', 'block');
     } else {
-      $('#map').css('display', 'none');
+      mapa.css('display', 'none');
     }
     if(window.location.hash == "#reload") {
       window.location.hash = '';
@@ -204,4 +272,3 @@ $(()=>{
   })
 
 })
-
