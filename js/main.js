@@ -33,10 +33,10 @@ $(()=>{
       }, 300)
       fireFont.css('display', 'block');
       navUl.css('display', 'block');
-      $('#map').animate({
+      $('#map').css({
         'width': '80vw',
         'left': '20vw'
-      }, 300)
+      })
       header.animate({
         'width': '80vw',
         'left': '20vw'
@@ -46,22 +46,22 @@ $(()=>{
         'left': '20vw'
       }, 300)
       slickSlider.slick('refresh');
-      services.animate({
+      services.css({
         'width': '80vw',
         'left': '20vw'
-      }, 300)
-      gallery.animate({
+      })
+      gallery.css({
         'width': '80vw',
         'left': '20vw'
-      }, 300)
-      contacts.animate({
+      })
+      contacts.css({
         'width': '80vw',
         'left': '20vw'
-      }, 300)
-      profile.animate({
+      })
+      profile.css({
         'width': '80vw',
         'left': '20vw'
-      }, 300)
+      })
       nav.attr('state','shown');
     } else {
       nav.animate({
@@ -72,30 +72,30 @@ $(()=>{
         'left': '0'
       }, 300)
       fireFont.css('display', 'none');
-      slickSlider.animate({
+      slickSlider.css({
         'width': '100vw',
         'left': '0'
-      }, 300)
-      $('#map').animate({
+      })
+      $('#map').css({
         'width': '100vw',
         'left': '0'
-      }, 300)
-      services.animate({
+      })
+      services.css({
         'width': '100vw',
         'left': '0'
-      }, 300)
-      gallery.animate({
+      })
+      gallery.css({
         'width': '100vw',
         'left': '0'
-      }, 300)
-      contacts.animate({
+      })
+      contacts.css({
         'width': '100vw',
         'left': '0'
-      }, 300)
-      profile.animate({
+      })
+      profile.css({
         'width': '100vw',
         'left': '0'
-      }, 300)
+      })
       navUl.css('display', 'none');
       nav.attr('state','hiden');
       slickSlider.slick('refresh');
