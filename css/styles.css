@@ -560,3 +560,42 @@ a[href='#']:active, a[class='active']  {
     position: relative;
 }
 
+#uSearch {
+    display: none;
+    text-align: center;
+    width: 4rem;
+}
+
+#reports .fa-times {
+    display: none;
+    font-size: 1.1rem;
+    margin-left: .2rem;
+    position: relative;
+    bottom: -3px;
+}
+
+#reports .fa-search {
+    margin-left: .2rem;
+    font-size: 1rem;
+}
+
+#reports table thead tr {
+    cursor: pointer;
+}
+
+#nav {
+    cursor: default;
+}
+
+i.fa-sort-up {
+    transform: rotate(90deg);
+    transition: transform .2s;
+}
+
+.arrowDown {
+    transform: rotate(180deg) !important;
+}
+
+.arrowUp {
+    transform: rotate(0deg) !important;
+}

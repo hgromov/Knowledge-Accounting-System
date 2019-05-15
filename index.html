@@ -147,29 +147,32 @@
             <form id="test_num">
                     <p>Rate and enter your knowledge on a 10-point scale in the following areas:</p> <br>
                     html, css: <br>
-                    <input type="number" name="tstn" min="0" max="10" step="1" value="0"><br>
+                    <input type="text" name="tstn"><br>
                     javascript: <br>
-                    <input type="number" name="tstn" min="0" max="10" step="1" value="0"><br>
+                    <input type="text" name="tstn"><br>
                     php: <br>
-                    <input type="number" name="tstn" min="0" max="10" step="1" value="0"><br>
+                    <input type="text" name="tstn"><br>
                     c#: <br>
-                    <input type="number" name="tstn" min="0" max="10" step="1" value="0"><br>
+                    <input type="text" name="tstn"><br>
                     java: <br>
-                    <input type="number" name="tstn" min="0" max="10" step="1" value="0"><br>
+                    <input type="text" name="tstn"><br>
                     <button type="submit">submit</button>
             </form>
             <div id="reports">
-                <table>
+                <table id="adminTable">
                     <thead>
                         <tr>
-                            <td>username</td>
-                            <td id="lay-long">layout making</td>
-                            <td id="lay-short" title="layout making">layout.m.</td>
-                            <td id="js-long">javascript</td>
-                            <td id="js-short">js</td>
-                            <td>php</td>
-                            <td>c#</td>
-                            <td>java</td>
+                            <td>
+                                <span>username</span><i class="fas fa-search"></i>
+                                <input id="uSearch" type="text" placeholder="query .."/><i class="fas fa-times"></i>
+                            </td>
+                            <td data-cat="lay" id="lay-long">layout making <i data-cat="lay" class="fas fa-sort-up"></i></td>
+                            <td data-cat="lay" id="lay-short" title="layout making">layout.m. <i data-cat="lay" class="fas fa-sort-up"></i></td>
+                            <td data-cat="js" id="js-long">javascript <i data-cat="js" class="fas fa-sort-up"></i></td>
+                            <td data-cat="js" id="js-short">js <i data-cat="js" class="fas fa-sort-up"></i></td>
+                            <td data-cat="php">php <i data-cat="php" class="fas fa-sort-up"></i></td>
+                            <td data-cat="sharp">c# <i data-cat="sharp" class="fas fa-sort-up"></i></td>
+                            <td data-cat="java">java <i data-cat="java" class="fas fa-sort-up"></i></td>
                         </tr>
                     </thead>
                     <tbody>

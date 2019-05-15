@@ -78,8 +78,6 @@ $(()=>{
             sessionStorage.setItem('activeSession', parsedItem.id);
             e.target[0].value = ''; e.target[1].value = '';
             location.reload();
-          } else if (item.slice(4) == 1 && userRegExp.test(item) == false) {
-            alert('something went wrong');
           }
         }
       }

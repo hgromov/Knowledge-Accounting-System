@@ -169,6 +169,12 @@ $(()=>{
       'fontWeight': 'bold',
     })
   })
+  // first of all
+  labelForHome.css({
+    'color': '#222',
+    'background': '#ccc',
+    'fontWeight': 'bold',
+  })
   
   // слайдер
   slickSlider.slick({

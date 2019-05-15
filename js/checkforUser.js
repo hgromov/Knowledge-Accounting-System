@@ -2,8 +2,6 @@ const
   userId = sessionStorage.getItem('activeSession'),
   userRegExp = new RegExp('^user\d*'),
   reportsQuery = new RegExp('^report');
-let userReport = currentReport(),
-isUserHasReport = currentReport() != false ? true : false;
 
 function checkUser() {
   let user = {};
@@ -47,7 +45,11 @@ function currentReport() {
       }
     }
   }
-  return userReport != {} ? userReport : false
+  if (userReport !== {}) {
+    return userReport
+  } else {
+    return undefined;
+  }
 }
 
 function reportLayout() {
