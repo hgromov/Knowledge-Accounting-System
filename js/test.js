@@ -175,8 +175,7 @@ $(()=>{
             layI[0].className = 'fas fa-sort-up arrowDown';
             layI[1].className = 'fas fa-sort-up arrowDown';
             tableRender()
-            console.log(layI[0].className)
-          } else if (layI[0].className == 'fas fa-sort-up arrowDown') {
+          } else if (layI[0].classList[2] == 'arrowDown') {
             allReps.sort(compare('lay', 'tobig'));
             layI[0].className = 'fas fa-sort-up arrowUp';
             layI[1].className = 'fas fa-sort-up arrowUp';
@@ -190,7 +189,7 @@ $(()=>{
             jsI[0].className = 'fas fa-sort-up arrowDown';
             jsI[1].className = 'fas fa-sort-up arrowDown';
             tableRender()
-          } else if (jsI[0].className == 'fas fa-sort-up arrowDown') {
+          } else if (jsI[0].classList[2] == 'arrowDown') {
             allReps.sort(compare('js', 'tobig'));
             jsI[0].className = 'fas fa-sort-up arrowUp';
             jsI[1].className = 'fas fa-sort-up arrowUp';
@@ -203,7 +202,7 @@ $(()=>{
             allReps.sort(compare('php', 'tosmall'));
             phpI[0].className = 'fas fa-sort-up arrowDown';
             tableRender()
-          } else if (phpI[0].className == 'fas fa-sort-up arrowDown') {
+          } else if (phpI[0].classList[2] == 'arrowDown') {
             allReps.sort(compare('php', 'tobig'));
             phpI[0].className = 'fas fa-sort-up arrowUp';
             tableRender()
@@ -215,7 +214,7 @@ $(()=>{
             allReps.sort(compare('sharp', 'tosmall'));
             sharpI[0].className = 'fas fa-sort-up arrowDown';
             tableRender()
-          } else if (sharpI[0].className == 'fas fa-sort-up arrowDown') {
+          } else if (sharpI[0].classList[2] == 'arrowDown') {
             allReps.sort(compare('sharp', 'tobig'));
             sharpI[0].className = 'fas fa-sort-up arrowUp';
             tableRender()
@@ -227,7 +226,7 @@ $(()=>{
             allReps.sort(compare('java', 'tosmall'));
             javaI[0].className = 'fas fa-sort-up arrowDown';
             tableRender()
-          } else if (javaI[0].className == 'fas fa-sort-up arrowDown') {
+          } else if (javaI[0].classList[2] == 'arrowDown') {
             allReps.sort(compare('java', 'tobig'));
             javaI[0].className = 'fas fa-sort-up arrowUp';
             tableRender()
